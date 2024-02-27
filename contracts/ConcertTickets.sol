@@ -13,7 +13,7 @@ contract ConcertTickets is ERC1155, Ownable {
     uint256 private generalExchangeRate;
     uint256 private vipExchangeRate;
     
-    constructor(address initialOwner, uint256 _tokenExchangeRate, uint256 _generalExchangeRate, uint256 _vipExchangeRate) ERC1155("") Ownable(initialOwner) {
+    constructor(uint256  _tokenExchangeRate, uint256 _generalExchangeRate, uint256 _vipExchangeRate) ERC1155("") Ownable(msg.sender) {
         _mint(address(this), GENERAL, 300, "");
         _mint(address(this), VIP, 30, "");
         _mint(address(this), CONCERT_TOKEN, 10**27, "");
