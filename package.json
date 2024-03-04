@@ -5,6 +5,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@types/jest": "^29.5.12",
     "hardhat": "^2.20.1"
   },
   "dependencies": {

@@ -63,7 +63,6 @@ describe("Lock", function () {
     describe("Validations", function () {
       it("Should revert with the right error if called too soon", async function () {
         const { lock } = await loadFixture(deployOneYearLockFixture);
-
         await expect(lock.withdraw()).to.be.revertedWith(
           "You can't withdraw yet"
         );
