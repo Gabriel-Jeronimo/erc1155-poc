@@ -30,7 +30,7 @@ contract ConcertTickets is ERC1155, Ownable, IERC1155Receiver {
     );
     event TokenBought(address receiver, uint256 amount);
     event TicketBought(address receiver, uint256 amount, uint256 id);
-    
+
     constructor(
         uint256 _tokenExchangeRate,
         uint256 _generalExchangeRate,
@@ -75,10 +75,7 @@ contract ConcertTickets is ERC1155, Ownable, IERC1155Receiver {
     function buyTokens(uint256 amount) public payable {
         require(
             msg.value >= amount * tokenExchangeRate,
-            "Not enough Ether sent. Please send at least " +
-                (amount * tokenExchangeRate).toString() +
-                " wei."
-        );
+            "Not enough Ether sent. Please send at least");
         require(
             balanceOf(address(this), CONCERT_TOKEN) >= amount,
             "Not enough concert tokens to transfer. Please try a smaller amount."
@@ -96,9 +93,7 @@ contract ConcertTickets is ERC1155, Ownable, IERC1155Receiver {
         require(
             balanceOf(msg.sender, CONCERT_TOKEN) >=
                 amount * generalExchangeRate,
-            "Not enough concert tokens to transfer. Please send at least " +
-                (amount * generalExchangeRate).toString() +
-                " tokens."
+            "Not enough concert tokens to transfer."
         );
 
         _safeTransferFrom(
@@ -120,9 +115,7 @@ contract ConcertTickets is ERC1155, Ownable, IERC1155Receiver {
         );
         require(
             balanceOf(msg.sender, CONCERT_TOKEN) >= amount * vipExchangeRate,
-            "Not enough concert tokens to transfer. Please send at least " +
-                (amount * vipExchangeRate).toString() +
-                " tokens."
+            "Not enough concert tokens to transfer. Please send at least"
         );
 
         _safeTransferFrom(
